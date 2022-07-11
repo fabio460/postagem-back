@@ -1,11 +1,10 @@
-
-const express = require('express')
 require('dotenv').config()
+const express = require('express')
 const  route  = require('./Route')
 const cors = require('cors')
 const app = express()
-//app.use(cors())
-//app.use(route)
+app.use(cors())
+app.use(route)
 app.get('/',(req,res)=>{
     res.send('teste')
 })

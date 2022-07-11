@@ -1,5 +1,5 @@
 const rota = require('express').Router()
-require('dotenv').config() 
+
 const upload = require('./upload')
 
 const controllerPost = require('./Controllers/controllerPost')
