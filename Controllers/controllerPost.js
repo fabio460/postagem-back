@@ -1,3 +1,4 @@
+require('dotenv').config()
 const conexao = require('../conexao')
 const aws = require('aws-sdk')
 conexao()
