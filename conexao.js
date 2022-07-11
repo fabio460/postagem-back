@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const conexao = ()=>{
-    mongoose.connect(process.env.URL_MONGOOSE,{
+    mongoose.connect("mongodb+srv://meuBanco:fabio2020@cluster0.w2xad.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{
         useNewUrlParser:true,
         useUnifiedTopology:true
       })
