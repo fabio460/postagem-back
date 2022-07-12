@@ -26,6 +26,14 @@ exports.listar =async (req,res)=>{
 }
 
 exports.deletar =async (req,res)=>{
+    
+    const post =await modelPost.find({
+        _id:req.body._id
+    })
+    
+    // let objeto = post
+    // //let fileName = objeto.split('/')
+    // console.log(objeto)
     let s3=new aws.S3()
     try {
         const deletar = modelPost.findByIdAndDelete(req.body._id,err=>{
@@ -35,7 +43,7 @@ exports.deletar =async (req,res)=>{
                 res.send('deletado com sucesso')
             }
         })
-       let S3 =await s3.deleteObject({ Bucket: process.env.BUCKET, Key: req.file.location }).promise();
+       let S3 =await s3.deleteObject({ Bucket: process.env.BUCKET, Key: req.body.fileName}).promise();
     } catch (error) {
         console.log(error)
     }
