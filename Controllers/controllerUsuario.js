@@ -54,7 +54,7 @@ exports.autenticarCliente = async (req,res)=>{
      return res.json({
        token : jwt.sign({modelCliente:req.body.modelCliente},'my-secret-key',{expiresIn:300}),
        nome:user.nome,
-       email:user.email
+       email:user.email,
      })
    }
 }
