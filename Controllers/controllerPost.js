@@ -11,7 +11,10 @@ exports.postar = (req,res)=>{
       modelPost.create({
         titulo:req.body.titulo,
         imagem:req.file.location,
-        postagem:req.body.postagem
+        postagem:req.body.postagem,
+        avatar:req.body.avatar,
+        userName:req.body.userName,
+        email:req.body.email
       })
       console.log(req.file)
    } catch (error) {
