@@ -10,7 +10,7 @@ exports.cadastrarUsuario =async (req,res)=>{
 
         if(e === null){
             modelCliente.create({
-                nome:req.body.nome,
+                userName:req.body.userName,
                 email:req.body.email,
                 senha:req.body.senha,
                 avatar:req.file.location,
@@ -54,7 +54,7 @@ exports.autenticarCliente = async (req,res)=>{
    }else{
      return res.json({
        token : jwt.sign({modelCliente:req.body.modelCliente},'my-secret-key',{expiresIn:300}),
-       nome:user.userName,
+       userName:user.userName,
        email:user.email,
        avatar:user.avatar
      })
