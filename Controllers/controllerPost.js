@@ -14,7 +14,8 @@ exports.postar = (req,res)=>{
         postagem:req.body.postagem,
         avatar:req.body.avatar,
         userName:req.body.userName,
-        email:req.body.email
+        email:req.body.email,
+        data:new Date()
       })
       console.log(req.file)
    } catch (error) {

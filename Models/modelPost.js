@@ -6,7 +6,8 @@ const modelSchema = mongoose.Schema({
     postagem:String,
     avatar:String,
     userName:String,
-    email:String
+    email:String,
+    data:Date
 })
 
 const modelPost = mongoose.model('post',modelSchema)
