@@ -1,7 +1,7 @@
 
 const modelCliente = require('../Models/modelUsuario')
 const jwt = require('jsonwebtoken')
-exports.cadastrarCliente =async (req,res)=>{
+exports.cadastrarUsuario =async (req,res)=>{
     
         const  e = await modelCliente.findOne({
             email:req.body.email
@@ -12,7 +12,8 @@ exports.cadastrarCliente =async (req,res)=>{
             modelCliente.create({
                 nome:req.body.nome,
                 email:req.body.email,
-                senha:req.body.senha
+                senha:req.body.senha,
+                avatar:req.file.location,
             })
             mensagem ='usuario cadastrado com sucesso'
         }else{
@@ -54,7 +55,8 @@ exports.autenticarCliente = async (req,res)=>{
      return res.json({
        token : jwt.sign({modelCliente:req.body.modelCliente},'my-secret-key',{expiresIn:300}),
        nome:user.userName,
-       email:user.email
+       email:user.email,
+       avatar:user.avatar
      })
    }
 }
