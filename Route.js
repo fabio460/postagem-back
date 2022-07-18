@@ -1,5 +1,5 @@
 const rota = require('express').Router()
-
+const controllerLikes = require("./Controllers/controllerLikes")
 const upload = require('./upload')
 const controllerUsuario = require('./Controllers/controllerUsuario')
 const controllerPost = require('./Controllers/controllerPost')
@@ -9,4 +9,8 @@ rota.post('/jwt',upload.single('imagem'),controllerUsuario.autenticarCliente)
 rota.post('/cadastrarUsuario',upload.single('avatar'),controllerUsuario.cadastrarUsuario)
 rota.get("/",controllerPost.listar)
 rota.get("/getUsuarios",controllerUsuario.exibirCliente)
+rota.post("/setLikes",upload.single('avatar'),controllerLikes.setLikes)
+rota.get("/getLikes",upload.single('avatar'),controllerLikes.getLikes)
+rota.put("/updateLikes",upload.single('avatar'),controllerLikes.updataLikes)
+rota.delete("/deleteLikes",upload.single('avatar'),controllerLikes.deleteLike)
 module.exports = rota

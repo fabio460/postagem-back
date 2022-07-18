@@ -3,7 +3,6 @@ const conexao = require('../conexao')
 const aws = require('aws-sdk')
 conexao()
 const modelPost = require('../Models/modelPost')
-const mongoose = require('mongoose')
 
 
 exports.postar = (req,res)=>{
