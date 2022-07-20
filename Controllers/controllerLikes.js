@@ -1,19 +1,37 @@
 const modelLikes = require('../Models/modelLikes')
 
-exports.setLikes = (req,res)=>{
+exports.setLikes =async (req,res)=>{
 
-   const like = modelLikes.create({
-        likes:req.body.likes,
-        comentarios:req.body.comentarios,
-        recebidoPor:req.body.recebidoPor,
-        enviadoPor:req.body.enviadoPor,
-        postagemId:req.body.postagemId
+    const list = await modelLikes.find({
+        postagemId:req.body.postagemId,
+        enviadoPor:req.body.enviadoPor
     })
-   res.send(like) 
+
+    if(list.length == 0){
+        const like = modelLikes.create({
+            likes:req.body.likes,
+            recebidoPor:req.body.recebidoPor,
+            enviadoPor:req.body.enviadoPor,
+            postagemId:req.body.postagemId
+        })
+        res.send('like dado com sucesso')
+    }else{
+        modelLikes.findByIdAndDelete(list[0]._id,(err)=>{
+            console.log(err)
+        })
+        res.send('like removido')
+    }
+   
 }
 
 exports.getLikes= async(req,res)=>{
     const list = await modelLikes.find()
+    res.send(list)
+}
+exports.getLikesPorId= async(req,res)=>{
+    const list = await modelLikes.find({
+        postagemId:req.body.postagemId
+    })
     res.send(list)
 }
 exports.updataLikes = (req,res)=>{

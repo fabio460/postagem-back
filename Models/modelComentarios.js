@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const modelSchema = mongoose.Schema({
-    likes:Number,
+    comentario:String,
     enviadoPor:String,
     recebidoPor:String,
     postagemId:String
 })
 
-const modelLikes = mongoose.model('like',modelSchema)
-module.exports = modelLikes
+const modelComentarios = mongoose.model('comentario',modelSchema)
+module.exports = modelComentarios
