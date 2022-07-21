@@ -3,7 +3,9 @@ const modelSchema = mongoose.Schema({
     likes:Number,
     enviadoPor:String,
     recebidoPor:String,
-    postagemId:String
+    postagemId:String,
+    avatarEmissor:String,
+    nomeEmissor:String
 })
 
 const modelLikes = mongoose.model('like',modelSchema)

@@ -12,7 +12,9 @@ exports.setLikes =async (req,res)=>{
             likes:req.body.likes,
             recebidoPor:req.body.recebidoPor,
             enviadoPor:req.body.enviadoPor,
-            postagemId:req.body.postagemId
+            postagemId:req.body.postagemId,
+            avatarEmissor:req.body.avatarEmissor,
+            nomeEmissor:req.body.nomeEmissor
         })
         res.send('like dado com sucesso')
     }else{
