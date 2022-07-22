@@ -3,6 +3,7 @@ exports.postarComentario = (req,res)=>{
     modelComentarios.create({
         comentario:req.body.comentario,
         enviadoPor:req.body.enviadoPor,
+        avatarEnviadoPor:req.body.avatarEnviadoPor,
         recebidoPor:req.body.recebidoPor,
         postagemId:req.body.postagemId
     })

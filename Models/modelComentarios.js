@@ -3,7 +3,8 @@ const modelSchema = mongoose.Schema({
     comentario:String,
     enviadoPor:String,
     recebidoPor:String,
-    postagemId:String
+    postagemId:String,
+    avatarEnviadoPor:String
 })
 
 const modelComentarios = mongoose.model('comentario',modelSchema)
